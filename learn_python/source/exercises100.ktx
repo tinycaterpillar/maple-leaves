@@ -1,0 +1,1125 @@
+< q1
+[DFS와 BFS](https://www.acmicpc.net/problem/1260)
+
+< h1
+hint: 
+
+< a1
+
+
+< q2
+[연속합 2](https://www.acmicpc.net/problem/13398)
+
+< h2
+hint: 
+
+< a2
+
+
+< q3
+[Base Conversion](https://www.acmicpc.net/problem/11576)
+
+< h3
+hint: 
+
+< a3
+
+
+< q4
+[트리의 높이와 너비](https://www.acmicpc.net/problem/2250)
+
+< h4
+hint: 
+
+< a4
+
+
+< q5
+[카잉 달력](https://www.acmicpc.net/problem/6064)
+
+< h5
+hint: 
+
+< a5
+
+
+< q6
+[트리 순회](https://www.acmicpc.net/problem/1991)
+
+< h6
+hint: 
+
+< a6
+
+
+< q7
+[2진수 8진수](https://www.acmicpc.net/problem/1373)
+
+< h7
+hint: 
+
+< a7
+
+
+< q8
+[숨바꼭질 6](https://www.acmicpc.net/problem/17087)
+
+< h8
+hint: 
+
+< a8
+
+
+< q9
+[알파벳 찾기](https://www.acmicpc.net/problem/10809)
+
+< h9
+hint: 
+
+< a9
+
+
+< q10
+[부등호](https://www.acmicpc.net/problem/2529)
+
+< h10
+hint: 
+
+< a10
+
+
+< q11
+[동물원](https://www.acmicpc.net/problem/1309)
+
+< h11
+hint: 
+
+< a11
+
+
+< q12
+[섬의 개수](https://www.acmicpc.net/problem/4963)
+
+< h12
+hint: 
+
+< a12
+
+
+< q13
+[N과 M (2)](https://www.acmicpc.net/problem/15650)
+
+< h13
+hint: 
+
+< a13
+
+
+< q14
+[RGB거리](https://www.acmicpc.net/problem/1149)
+
+< h14
+hint: 
+
+< a14
+
+
+< q15
+[스택](https://www.acmicpc.net/problem/10828)
+
+< h15
+hint: 
+
+< a15
+
+
+< q16
+[숨바꼭질](https://www.acmicpc.net/problem/1697)
+
+< h16
+hint: 
+
+< a16
+
+
+< q17
+[가장 긴 증가하는 부분 수열](https://www.acmicpc.net/problem/11053)
+
+< h17
+hint: 
+
+< a17
+
+
+< q18
+[제곱수의 합](https://www.acmicpc.net/problem/1699)
+
+< h18
+hint: 
+
+< a18
+
+
+< q19
+[나머지](https://www.acmicpc.net/problem/10430)
+
+< h19
+hint: 
+
+< a19
+
+
+< q20
+[이전 순열](https://www.acmicpc.net/problem/10973)
+
+< h20
+hint: 
+
+< a20
+
+
+< q21
+[알고스팟](https://www.acmicpc.net/problem/1261)
+
+< h21
+hint: 
+
+< a21
+
+
+< q22
+[N과 M (3)](https://www.acmicpc.net/problem/15651)
+
+< h22
+hint: 
+
+< a22
+
+
+< q23
+[로또](https://www.acmicpc.net/problem/6603)
+
+< h23
+hint: 
+
+< a23
+
+
+< q24
+[연결 요소의 개수](https://www.acmicpc.net/problem/11724)
+
+< h24
+hint: 
+
+< a24
+
+
+< q25
+[N과 M (7)](https://www.acmicpc.net/problem/15656)
+
+< h25
+hint: 
+
+< a25
+
+
+< q26
+[8진수 2진수](https://www.acmicpc.net/problem/1212)
+
+< h26
+hint: 
+
+< a26
+
+
+< q27
+[부분수열의 합](https://www.acmicpc.net/problem/1182)
+
+< h27
+hint: 
+
+< a27
+
+
+< q28
+[미로 탐색](https://www.acmicpc.net/problem/2178)
+
+< h28
+hint: 
+
+< a28
+
+
+< q29
+[1, 2, 3 더하기 5](https://www.acmicpc.net/problem/15990)
+
+< h29
+hint: 
+
+< a29
+
+
+< q30
+[단어 길이 재기](https://www.acmicpc.net/problem/2743)
+
+< h30
+hint: 
+
+< a30
+
+
+< q31
+[-2진수](https://www.acmicpc.net/problem/2089)
+
+< h31
+hint: 
+
+< a31
+
+
+< q32
+[사탕 게임](https://www.acmicpc.net/problem/3085)
+
+< h32
+hint: 
+
+< a32
+
+
+< q33
+[쇠막대기](https://www.acmicpc.net/problem/10799)
+
+< h33
+hint: 
+
+< a33
+
+
+< q34
+[트리의 지름](https://www.acmicpc.net/problem/1167)
+
+< h34
+hint: 
+
+< a34
+
+
+< q35
+[링크와 스타트](https://www.acmicpc.net/problem/15661)
+
+< h35
+hint: 
+
+< a35
+
+
+< q36
+[요세푸스 문제](https://www.acmicpc.net/problem/1158)
+
+< h36
+hint: 
+
+< a36
+
+
+< q37
+[단어 뒤집기 2](https://www.acmicpc.net/problem/17413)
+
+< h37
+hint: 
+
+< a37
+
+
+< q38
+[가장 긴 감소하는 부분 수열](https://www.acmicpc.net/problem/11722)
+
+< h38
+hint: 
+
+< a38
+
+
+< q39
+[알파벳 개수](https://www.acmicpc.net/problem/10808)
+
+< h39
+hint: 
+
+< a39
+
+
+< q40
+[DFS 스페셜 저지](https://www.acmicpc.net/problem/16964)
+
+< h40
+hint: 
+
+< a40
+
+
+< q41
+[2×n 타일링](https://www.acmicpc.net/problem/11726)
+
+< h41
+hint: 
+
+< a41
+
+
+< q42
+[가장 큰 증가 부분 수열](https://www.acmicpc.net/problem/11055)
+
+< h42
+hint: 
+
+< a42
+
+
+< q43
+[나이트의 이동](https://www.acmicpc.net/problem/7562)
+
+< h43
+hint: 
+
+< a43
+
+
+< q44
+[차이를 최대로](https://www.acmicpc.net/problem/10819)
+
+< h44
+hint: 
+
+< a44
+
+
+< q45
+[골드바흐의 추측](https://www.acmicpc.net/problem/6588)
+
+< h45
+hint: 
+
+< a45
+
+
+< q46
+[퇴사](https://www.acmicpc.net/problem/14501)
+
+< h46
+hint: 
+
+< a46
+
+
+< q47
+[일곱 난쟁이](https://www.acmicpc.net/problem/2309)
+
+< h47
+hint: 
+
+< a47
+
+
+< q48
+[N과 M (9)](https://www.acmicpc.net/problem/15663)
+
+< h48
+hint: 
+
+< a48
+
+
+< q49
+[암호 만들기](https://www.acmicpc.net/problem/1759)
+
+< h49
+hint: 
+
+< a49
+
+
+< q50
+[에디터](https://www.acmicpc.net/problem/1406)
+
+< h50
+hint: 
+
+< a50
+
+
+< q51
+[Two Dots](https://www.acmicpc.net/problem/16929)
+
+< h51
+hint: 
+
+< a51
+
+
+< q52
+[큐](https://www.acmicpc.net/problem/10845)
+
+< h52
+hint: 
+
+< a52
+
+
+< q53
+[트리의 지름](https://www.acmicpc.net/problem/1967)
+
+< h53
+hint: 
+
+< a53
+
+
+< q54
+[단지번호붙이기](https://www.acmicpc.net/problem/2667)
+
+< h54
+hint: 
+
+< a54
+
+
+< q55
+[스타트와 링크](https://www.acmicpc.net/problem/14889)
+
+< h55
+hint: 
+
+< a55
+
+
+< q56
+[1로 만들기](https://www.acmicpc.net/problem/1463)
+
+< h56
+hint: 
+
+< a56
+
+
+< q57
+[괄호](https://www.acmicpc.net/problem/9012)
+
+< h57
+hint: 
+
+< a57
+
+
+< q58
+[최소공배수](https://www.acmicpc.net/problem/1934)
+
+< h58
+hint: 
+
+< a58
+
+
+< q59
+[오큰수](https://www.acmicpc.net/problem/17298)
+
+< h59
+hint: 
+
+< a59
+
+
+< q60
+[후위 표기식2](https://www.acmicpc.net/problem/1935)
+
+< h60
+hint: 
+
+< a60
+
+
+< q61
+[진법 변환 2](https://www.acmicpc.net/problem/11005)
+
+< h61
+hint: 
+
+< a61
+
+
+< q62
+[소수 찾기](https://www.acmicpc.net/problem/1978)
+
+< h62
+hint: 
+
+< a62
+
+
+< q63
+[접미사 배열](https://www.acmicpc.net/problem/11656)
+
+< h63
+hint: 
+
+< a63
+
+
+< q64
+[숨바꼭질 4](https://www.acmicpc.net/problem/13913)
+
+< h64
+hint: 
+
+< a64
+
+
+< q65
+[골드바흐 파티션](https://www.acmicpc.net/problem/17103)
+
+< h65
+hint: 
+
+< a65
+
+
+< q66
+[Guess](https://www.acmicpc.net/problem/1248)
+
+< h66
+hint: 
+
+< a66
+
+
+< q67
+[이모티콘](https://www.acmicpc.net/problem/14226)
+
+< h67
+hint: 
+
+< a67
+
+
+< q68
+[숨바꼭질 3](https://www.acmicpc.net/problem/13549)
+
+< h68
+hint: 
+
+< a68
+
+
+< q69
+[N과 M (11)](https://www.acmicpc.net/problem/15665)
+
+< h69
+hint: 
+
+< a69
+
+
+< q70
+[소수 구하기](https://www.acmicpc.net/problem/1929)
+
+< h70
+hint: 
+
+< a70
+
+
+< q71
+[진법 변환](https://www.acmicpc.net/problem/2745)
+
+< h71
+hint: 
+
+< a71
+
+
+< q72
+[N과 M (10)](https://www.acmicpc.net/problem/15664)
+
+< h72
+hint: 
+
+< a72
+
+
+< q73
+[팩토리얼](https://www.acmicpc.net/problem/10872)
+
+< h73
+hint: 
+
+< a73
+
+
+< q74
+[이친수](https://www.acmicpc.net/problem/2193)
+
+< h74
+hint: 
+
+< a74
+
+
+< q75
+[N과 M (8)](https://www.acmicpc.net/problem/15657)
+
+< h75
+hint: 
+
+< a75
+
+
+< q76
+[스티커](https://www.acmicpc.net/problem/9465)
+
+< h76
+hint: 
+
+< a76
+
+
+< q77
+[ABCDE](https://www.acmicpc.net/problem/13023)
+
+< h77
+hint: 
+
+< a77
+
+
+< q78
+[N과 M (1)](https://www.acmicpc.net/problem/15649)
+
+< h78
+hint: 
+
+< a78
+
+
+< q79
+[RGB거리 2](https://www.acmicpc.net/problem/17404)
+
+< h79
+hint: 
+
+< a79
+
+
+< q80
+[N과 M (12)](https://www.acmicpc.net/problem/15666)
+
+< h80
+hint: 
+
+< a80
+
+
+< q81
+[정수 삼각형](https://www.acmicpc.net/problem/1932)
+
+< h81
+hint: 
+
+< a81
+
+
+< q82
+[서울 지하철 2호선](https://www.acmicpc.net/problem/16947)
+
+< h82
+hint: 
+
+< a82
+
+
+< q83
+[종이 조각](https://www.acmicpc.net/problem/14391)
+
+< h83
+hint: 
+
+< a83
+
+
+< q84
+[연속합](https://www.acmicpc.net/problem/1912)
+
+< h84
+hint: 
+
+< a84
+
+
+< q85
+[후위 표기식](https://www.acmicpc.net/problem/1918)
+
+< h85
+hint: 
+
+< a85
+
+
+< q86
+[팩토리얼 0의 개수](https://www.acmicpc.net/problem/1676)
+
+< h86
+hint: 
+
+< a86
+
+
+< q87
+[포도주 시식](https://www.acmicpc.net/problem/2156)
+
+< h87
+hint: 
+
+< a87
+
+
+< q88
+[2×n 타일링 2](https://www.acmicpc.net/problem/11727)
+
+< h88
+hint: 
+
+< a88
+
+
+< q89
+[소인수분해](https://www.acmicpc.net/problem/11653)
+
+< h89
+hint: 
+
+< a89
+
+
+< q90
+[N과 M (5)](https://www.acmicpc.net/problem/15654)
+
+< h90
+hint: 
+
+< a90
+
+
+< q91
+[ROT13](https://www.acmicpc.net/problem/11655)
+
+< h91
+hint: 
+
+< a91
+
+
+< q92
+[집합](https://www.acmicpc.net/problem/11723)
+
+< h92
+hint: 
+
+< a92
+
+
+< q93
+[BFS 스페셜 저지](https://www.acmicpc.net/problem/16940)
+
+< h93
+hint: 
+
+< a93
+
+
+< q94
+[GCD 합](https://www.acmicpc.net/problem/9613)
+
+< h94
+hint: 
+
+< a94
+
+
+< q95
+[다리 만들기](https://www.acmicpc.net/problem/2146)
+
+< h95
+hint: 
+
+< a95
+
+
+< q96
+[쉬운 계단 수](https://www.acmicpc.net/problem/10844)
+
+< h96
+hint: 
+
+< a96
+
+
+< q97
+[외판원 순회 2](https://www.acmicpc.net/problem/10971)
+
+< h97
+hint: 
+
+< a97
+
+
+< q98
+[카드 구매하기 2](https://www.acmicpc.net/problem/16194)
+
+< h98
+hint: 
+
+< a98
+
+
+< q99
+[1, 2, 3 더하기 3](https://www.acmicpc.net/problem/15988)
+
+< h99
+hint: 
+
+< a99
+
+
+< q100
+[토마토](https://www.acmicpc.net/problem/7576)
+
+< h100
+hint: 
+
+< a100
+
+
+< q101
+[이분 그래프](https://www.acmicpc.net/problem/1707)
+
+< h101
+hint: 
+
+< a101
+
+
+< q102
+[N과 M (6)](https://www.acmicpc.net/problem/15655)
+
+< h102
+hint: 
+
+< a102
+
+
+< q103
+[가장 긴 증가하는 부분 수열 4](https://www.acmicpc.net/problem/14002)
+
+< h103
+hint: 
+
+< a103
+
+
+< q104
+[모든 순열](https://www.acmicpc.net/problem/10974)
+
+< h104
+hint: 
+
+< a104
+
+
+< q105
+[네 수](https://www.acmicpc.net/problem/10824)
+
+< h105
+hint: 
+
+< a105
+
+
+< q106
+[조합 0의 개수](https://www.acmicpc.net/problem/2004)
+
+< h106
+hint: 
+
+< a106
+
+
+< q107
+[카드 구매하기](https://www.acmicpc.net/problem/11052)
+
+< h107
+hint: 
+
+< a107
+
+
+< q108
+[리모컨](https://www.acmicpc.net/problem/1107)
+
+< h108
+hint: 
+
+< a108
+
+
+< q109
+[타일 채우기](https://www.acmicpc.net/problem/2133)
+
+< h109
+hint: 
+
+< a109
+
+
+< q110
+[1, 2, 3 더하기](https://www.acmicpc.net/problem/9095)
+
+< h110
+hint: 
+
+< a110
+
+
+< q111
+[덱](https://www.acmicpc.net/problem/10866)
+
+< h111
+hint: 
+
+< a111
+
+
+< q112
+[오등큰수](https://www.acmicpc.net/problem/17299)
+
+< h112
+hint: 
+
+< a112
+
+
+< q113
+[문자열 분석](https://www.acmicpc.net/problem/10820)
+
+< h113
+hint: 
+
+< a113
+
+
+< q114
+[가장 긴 바이토닉 부분 수열](https://www.acmicpc.net/problem/11054)
+
+< h114
+hint: 
+
+< a114
+
+
+< q115
+[트리의 부모 찾기](https://www.acmicpc.net/problem/11725)
+
+< h115
+hint: 
+
+< a115
+
+
+< q116
+[날짜 계산](https://www.acmicpc.net/problem/1476)
+
+< h116
+hint: 
+
+< a116
+
+
+< q117
+[스택 수열](https://www.acmicpc.net/problem/1874)
+
+< h117
+hint: 
+
+< a117
+
+
+< q118
+[N과 M (4)](https://www.acmicpc.net/problem/15652)
+
+< h118
+hint: 
+
+< a118
+
+
+< q119
+[다음 순열](https://www.acmicpc.net/problem/10972)
+
+< h119
+hint: 
+
+< a119
+
+
+< q120
+[수 이어 쓰기 1](https://www.acmicpc.net/problem/1748)
+
+< h120
+hint: 
+
+< a120
+
+
+< q121
+[오르막 수](https://www.acmicpc.net/problem/11057)
+
+< h121
+hint: 
+
+< a121
+
+
+< q122
+[합분해](https://www.acmicpc.net/problem/2225)
+
+< h122
+hint: 
+
+< a122
+
+
+< q123
+[테트로미노](https://www.acmicpc.net/problem/14500)
+
+< h123
+hint: 
+
+< a123
+
+
+< q124
+[단어 뒤집기](https://www.acmicpc.net/problem/9093)
+
+< h124
+hint: 
+
+< a124
+
+
+< q125
+[최대공약수와 최소공배수](https://www.acmicpc.net/problem/2609)
+
+< h125
+hint: 
+
+< a125
+
+
