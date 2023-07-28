@@ -1,0 +1,11 @@
+< header
+# Exercises
+
+This is program to teach something. Most of the source code is from https://github.com/rougier/numpy-100
+
+< sub_header
+File automatically generated. See the documentation to update questions/answers/hints programmatically.
+
+< jupyter_instruction
+Run the `initialize.py` module, then for each question you can query the
+answer or an hint with `hint(n)` or `answer(n)` for `n` question number.
