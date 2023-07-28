@@ -46,6 +46,7 @@ def create_jupyter_notebook(destination_filename='Exercises.ipynb'):
     for n in range(1, len(QHA)//3+1):
         nb['cells'].append(nbf.v4.new_markdown_cell(f'#### {n}. ' + QHA[f'q{n}']))
         nb['cells'].append(nbf.v4.new_code_cell(""))
+        nb['cells'].append(nbf.v4.new_code_cell(f"answer({n})"))
 
     # Delete file if one with the same name is found
     if os.path.exists(destination_filename):
