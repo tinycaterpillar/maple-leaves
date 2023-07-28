@@ -37,6 +37,7 @@ def create_jupyter_notebook(destination_filename='Exercises.ipynb'):
     nb['cells'].append(nbf.v4.new_markdown_cell(HEADERS["header"]))
     nb['cells'].append(nbf.v4.new_markdown_cell(HEADERS["sub_header"]))
     nb['cells'].append(nbf.v4.new_markdown_cell(HEADERS["jupyter_instruction"]))
+    nb['cells'].append(nbf.v4.new_markdown_cell(HEADERS["jupyter_shotcuts"]))
 
     # - Add initialisation
     nb['cells'].append(nbf.v4.new_code_cell('%run initialise.py'))
