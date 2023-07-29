@@ -11,7 +11,7 @@ Run the `initialize.py` module, then for each question you can query the
 answer or an hint with `hint(n)` or `answer(n)` for `n` question number.
 
 < jupyter_shotcuts
-### Jupyter shortcuts  
+### Jupyter shortcuts for your mouseless control
 Command Mode (press `Esc` to enable)  
 `Enter` : enter edit mode  
 `Shift-Enter` : run cell, select below  

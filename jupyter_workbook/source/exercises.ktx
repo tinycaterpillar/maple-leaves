@@ -11,7 +11,7 @@ import numpy as np
 Print the numpy version and the configuration (★☆☆)
 
 < h2
-hint: np.__version__, np.show_config)
+hint: np.__version__, np.show_config
 
 < a2
 print(np.__version__)
@@ -41,10 +41,10 @@ print("%d bytes" % (Z.size * Z.itemsize))
 How to get the documentation of the numpy add function from the command line? (★☆☆)
 
 < h5
-hint: np.info
+hint: np.info, ! command
 
 < a5
-%run `python -c "import numpy; numpy.info(numpy.add)"`
+!python -c "import numpy; numpy.info(numpy.add)"
 
 < q6
 Create a null vector of size 10 but the fifth value which is 1 (★☆☆)
@@ -1535,3 +1535,41 @@ idx = np.random.randint(0, X.size, (N, X.size))
 means = X[idx].mean(axis=1)
 confint = np.percentile(means, [2.5, 97.5])
 print(confint)
+
+< q101
+What is the result of the following expression? Compare the execution time of the codes in the last 4 lines. (★☆☆)
+```python
+X = np.arange(4).reshape((2, 2))
+X^2
+np.matmul(X, X)
+X*X
+X**2
+np.square(X)
+np.power(X, 2)
+```
+
+< h101
+hint: %timeit
+
+< a101
+X = np.arange(4).reshape((2, 2))
+print(X^2) # bitwise or
+print(np.matmul(X, X))
+print(X*X)
+print(X**2)
+print(np.square(X))
+print(np.power(X, 2))
+
+%timeit X*X
+%timeit X**2
+%timeit np.square(X)
+%timeit np.power(X, 2) # this is too slow
+
+< q102
+How to see documentation of command `%run`? (★☆☆)
+
+< h102
+hint: 
+
+< a102
+%run?
