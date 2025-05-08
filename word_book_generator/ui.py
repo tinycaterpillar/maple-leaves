@@ -210,7 +210,7 @@ class WordbookApp:
             self.progress_frame.pack(pady=5)  # ✅ 프레임 통째로 표시
             self.progress.start()  # 시작 전 잠깐이라도 회전 효과
             self.progress.stop()   # 바로 determinate 전환
-            self.progress_label.config(text="0 / ? 단어 처리 중...")
+            self.progress_label.config(f"[번역 중] 0 / ? 단어 번역됨")
             self.root.update()
 
             start_time = time.time()

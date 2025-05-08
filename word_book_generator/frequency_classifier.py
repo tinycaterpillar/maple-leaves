@@ -3,7 +3,6 @@ from wordfreq import word_frequency
 from filters import is_study_friendly, is_meaningful, lemmatize_word
 from text_loader import extract_words
 from nltk.corpus import wordnet
-from tqdm import tqdm
 from cefr_data import CEFR_DICT
 from googletrans import Translator
 
@@ -74,11 +73,11 @@ def classify_filtered_words(text, include_english, include_korean, levels, progr
             last_percent = percent
             progress_bar.after(0, lambda p=percent: progress_bar.config(value=p))
             progress_label.after(0, lambda p=processed: progress_label.config(
-                text=f"{p} / {total} 단어 처리 중..."))
+                text=f"[번역 중] {p} / {total} 단어 번역됨"))
 
     # ✅ 최종 완료 상태 표시
     progress_bar.after(0, lambda: progress_bar.config(value=100))
     progress_label.after(0, lambda: progress_label.config(
-        text=f"{processed} / {total} 단어 처리 완료"))
+        text=f"[번역 완료] {processed} / {total} 단어"))
 
     return level_buckets
