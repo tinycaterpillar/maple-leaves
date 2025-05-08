@@ -1,4 +1,4 @@
-import fitz  # PyMuPDF
+import fitz
 import re
 
 def load_text(filepath):

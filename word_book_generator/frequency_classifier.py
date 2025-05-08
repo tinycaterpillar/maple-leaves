@@ -7,17 +7,9 @@ from tqdm import tqdm
 from cefr_data import CEFR_DICT
 from googletrans import Translator
 
-def get_nltk_definitions(word):
-    synsets = wordnet.synsets(word)
-    if not synsets:
-        return f"No definition found for '{word}' in WordNet."
-    
-    s = synsets[0]  # 가장 일반적인 의미
-    return f"({s.pos()}) {s.definition()}"
-
+translator = Translator()
 
 def translate_word(word):
-    translator = Translator()
     try:
         translated = translator.translate(word, src='en', dest='ko')
         translated_meaning = translated.text
@@ -29,14 +21,22 @@ def translate_word(word):
         return f"({s.pos()}) {translated_meaning}"
     except Exception as e:
         return "번역에 실패했습니다."
+    
+
+def get_nltk_definitions(word):
+    synsets = wordnet.synsets(word)
+    if not synsets:
+        return f"No definition found for '{word}' in WordNet."
+    
+    s = synsets[0]  # 가장 일반적인 의미
+    return f"({s.pos()}) {s.definition()}"
 
 
-def classify_filtered_words(text, include_english, include_korean, levels):
+def classify_filtered_words(text, include_english, include_korean, levels, progress_bar, progress_label):
     words = extract_words(text)
     word_counts = Counter(words)
 
-    level_buckets = {level: [] for level in ['A1', 'A2', 'B1', 'B2', 'C1', 'UD']}
-
+    filtered_words = []
     for word, count in word_counts.items():
         base_word = lemmatize_word(word)
 
@@ -44,14 +44,41 @@ def classify_filtered_words(text, include_english, include_korean, levels):
             continue
         if word_frequency(base_word, 'en') > 0.001:
             continue
-
         level = CEFR_DICT.get(base_word, "UD")
+        if level not in levels:
+            continue
 
+        filtered_words.append((base_word, level))
+
+    # 중복 제거
+    filtered_words = list(set(filtered_words))
+    total = len(filtered_words)
+    processed = 0
+    last_percent = -1
+
+    level_buckets = {level: [] for level in ['A1', 'A2', 'B1', 'B2', 'C1', 'UD']}
+
+    for base_word, level in filtered_words:
         if level in levels:
             row = [base_word]
             if include_english:
                 row.append(get_nltk_definitions(base_word))
             if include_korean:
-                row.append(translate_word(word))
+                row.append(translate_word(base_word))
             level_buckets[level].append(row)
+
+        # ✅ 진행률 표시 (5% 단위)
+        processed += 1
+        percent = int((processed / total) * 100)
+        if percent // 5 > last_percent // 5:
+            last_percent = percent
+            progress_bar.after(0, lambda p=percent: progress_bar.config(value=p))
+            progress_label.after(0, lambda p=processed: progress_label.config(
+                text=f"{p} / {total} 단어 처리 중..."))
+
+    # ✅ 최종 완료 상태 표시
+    progress_bar.after(0, lambda: progress_bar.config(value=100))
+    progress_label.after(0, lambda: progress_label.config(
+        text=f"{processed} / {total} 단어 처리 완료"))
+
     return level_buckets

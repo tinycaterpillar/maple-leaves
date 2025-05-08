@@ -217,19 +217,23 @@ class WordbookApp:
 
             setup_nltk()
             text = extract_text_from_pdf(self.file_path, self.start_page, self.end_page)
+            include_english = self.meaning_options["en"].get()
+            include_korean = self.meaning_options["ko"].get()
             selected_levels = [lvl for lvl, var in self.level_options.items() if var.get()]
 
             level_buckets = classify_filtered_words(
                 text,
-                include_english=self.meaning_options["en"].get(),
-                include_korean=self.meaning_options["ko"].get(),
-                levels = selected_levels
+                include_english=include_english,
+                include_korean=include_english,
+                levels=selected_levels,
+                progress_bar=self.progress,
+                progress_label=self.progress_label
             )
 
             save_each_level_to_excel(
                 level_buckets,
-                include_english=self.meaning_options["en"].get(),
-                include_korean=self.meaning_options["ko"].get(),
+                include_english=include_english,
+                include_korean=include_korean,
                 levels = selected_levels,
                 save_folder = self.save_folder
             )
