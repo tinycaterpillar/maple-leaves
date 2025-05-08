@@ -2,3 +2,7 @@ This program takes a PDF file as input and generates a wordbook by extracting it
 
 Vocabulary levels are determined using the following reference:
 https://www.oxfordlearnersdictionaries.com/wordlists/oxford3000-5000
+
+How to build?
+pyinstaller --clean wordbook_debug.spec
+pyinstaller --clean wordbook_release.spec

@@ -32,7 +32,6 @@ def get_nltk_definitions(word):
 
 
 def classify_filtered_words(text, include_english, include_korean, levels, progress_bar, progress_label):
-    print("ko", include_korean)
     words = extract_words(text)
     word_counts = Counter(words)
 
