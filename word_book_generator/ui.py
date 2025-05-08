@@ -102,11 +102,23 @@ class WordbookApp:
         progress_frame.pack(pady=5)
 
         # 프로세스바
-        self.progress = ttk.Progressbar(progress_frame, length=300, mode="determinate")
+        style = ttk.Style()
+        style.theme_use("default")
+        style.configure("Custom.Horizontal.TProgressbar",
+                        troughcolor="#e0e0e0",
+                        background="#f97316",  # 진한 주황색
+                        thickness=18)
+
+        # 생성 시 적용
+        self.progress = ttk.Progressbar(progress_frame,
+                                        style="Custom.Horizontal.TProgressbar",
+                                        orient="horizontal",
+                                        mode="determinate",
+                                        length=300)
         self.progress.pack(side="left")
 
         # 상태 표시 라벨
-        self.progress_label = tk.Label(progress_frame, text="", fg="blue")
+        self.progress_label = tk.Label(progress_frame, text="", fg="#f97316")
         self.progress_label.pack(side="left", padx=10)
 
         # 처음엔 모두 숨김
@@ -206,11 +218,9 @@ class WordbookApp:
     def _run_generation(self):
         try:
             self.progress["value"] = 0
-            self.progress["maximum"] = 100  # 🔁 퍼센트 기반으로 맞춤
-            self.progress_frame.pack(pady=5)  # ✅ 프레임 통째로 표시
-            self.progress.start()  # 시작 전 잠깐이라도 회전 효과
-            self.progress.stop()   # 바로 determinate 전환
-            self.progress_label.config(f"[번역 중] 0 / ? 단어 번역됨")
+            self.progress["maximum"] = 100  # 퍼센트 기반 설정
+            self.progress_frame.pack(pady=5)  # 진행률 프레임 표시
+            self.progress_label.config(text="[번역 중] 0 / ? 단어 번역됨")
             self.root.update()
 
             start_time = time.time()
@@ -224,7 +234,7 @@ class WordbookApp:
             level_buckets = classify_filtered_words(
                 text,
                 include_english=include_english,
-                include_korean=include_english,
+                include_korean=include_korean,
                 levels=selected_levels,
                 progress_bar=self.progress,
                 progress_label=self.progress_label
