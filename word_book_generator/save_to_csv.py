@@ -1,14 +1,40 @@
 import os
-import csv
+from openpyxl import Workbook
 
-def save_each_level_to_csv(level_buckets, save_foler=None):
-    if save_foler is None:
-        save_foler = os.getcwd()  # 현재 실행 경로
 
-    for level, word_list in level_buckets.items():
-        filename = os.path.join(save_foler, f"word_book_{level}.csv")
-        with open(filename, 'w', newline='', encoding='utf-8') as f:
-            writer = csv.writer(f)
-            for word, meaning in word_list:
-                writer.writerow([word, meaning])
+def save_each_level_to_excel(level_buckets, include_english, include_korean, levels, save_folder=None):
+    if save_folder is None:
+        save_folder = os.getcwd()
+
+    for level in levels:
+        word_list = level_buckets.get(level, [])
+        if not word_list:
+            continue
+
+        filename = os.path.join(save_folder, f"word_book_{level}.xlsx")
+        wb = Workbook()
+        ws = wb.active
+        ws.title = f"Level {level}"
+
+        # ✅ 헤더 구성
+        header = ["단어"]
+        if include_english:
+            header.append("영어 뜻")
+        if include_korean:
+            header.append("한글 뜻")
+        ws.append(header)
+
+        for entry in word_list:
+            word = entry[0]
+            idx = 1
+            row = [word]
+
+            if include_english:
+                row.append(entry[idx])
+                idx += 1
+            if include_korean:
+                row.append(entry[idx])
+
+            ws.append(row)
+        wb.save(filename)
         print(f"✅ Saved: {filename}")

@@ -10,11 +10,10 @@ def extract_text_from_pdf(pdf_path, start_page=0, end_page=None):
     doc = fitz.open(pdf_path)
     text = ""
     
-    # 페이지 범위 계산
     if end_page is None:
-        end_page = len(doc)  # 전체 페이지까지
+        end_page = len(doc)-1
 
-    for page_num in range(start_page, min(end_page, len(doc))):
+    for page_num in range(start_page, min(end_page+1, len(doc))):
         page = doc[page_num]
         text += page.get_text()
         text += "\n"
