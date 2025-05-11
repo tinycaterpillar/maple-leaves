@@ -5,4 +5,3 @@ https://www.oxfordlearnersdictionaries.com/wordlists/oxford3000-5000
 
 How to build?
 pyinstaller --clean wordbook_debug.spec
-pyinstaller --clean wordbook_release.spec
