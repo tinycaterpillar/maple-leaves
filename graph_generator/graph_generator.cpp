@@ -1,5 +1,7 @@
 #include <iostream>
+#include <fstream>
 #include <vector>
+#include <sstream>
 #include <algorithm>
 #include <numeric>
 #include <cassert>
@@ -8,24 +10,21 @@ using namespace std;
 
 using Edge = pair<int, int>;
 
-// input: A valid deg sequece
-// output: Edge list sadisfing given seq
+// Havel–Hakimi 그래프 생성기
 vector<Edge> havel_hakimi_graph(vector<int> deg) {
     int n = deg.size();
-    vector<int> label(n);  // V(G) = {0, 1, ... n-1}
+    vector<int> label(n);
     iota(label.begin(), label.end(), 0);
 
     vector<Edge> edges;
 
     while (true) {
-        // deg, label 을 degree 기준으로 내림차순 정렬
         vector<pair<int, int>> paired(n);
         for (int i = 0; i < n; ++i)
             paired[i] = {deg[i], label[i]};
 
         sort(paired.rbegin(), paired.rend());
 
-        // 모두 0이면 종료
         if (paired[0].first == 0)
             break;
 
@@ -48,10 +47,8 @@ vector<Edge> havel_hakimi_graph(vector<int> deg) {
             paired[i].first -= 1;
         }
 
-        // 현재 정점의 차수는 0으로
         paired[0].first = 0;
 
-        // deg, label 업데이트
         for (int i = 0; i < n; ++i) {
             deg[i] = paired[i].first;
             label[i] = paired[i].second;
@@ -62,15 +59,57 @@ vector<Edge> havel_hakimi_graph(vector<int> deg) {
 }
 
 int main() {
-    vector<int> deg{6, 5, 5, 4, 3, 2, 2, 1};
-    cout << "deg seq: ";
-    for(auto e: deg) cout << e << ' ' ;
-    cout << endl; 
-
-    auto edge = havel_hakimi_graph(deg);
-    for(auto e: edge){
-        cout << e.first << ' ' << e.second << endl;
+    ifstream infile("data/seq.txt");
+    if (!infile) {
+        cerr << "Error: Cannot open seq.txt\n";
+        return 1;
     }
 
+    string line;
+    int line_num = 0;
+    int num_of_vertices = -1;
+
+    // 첫 줄에서 정점 수 읽기
+    if (getline(infile, line)) {
+        stringstream ss(line);
+        ss >> num_of_vertices;
+        if (num_of_vertices <= 0) {
+            cerr << "Invalid vertex count\n";
+            return 1;
+        }
+    }
+
+    while (getline(infile, line)) {
+        stringstream ss(line);
+        vector<int> deg;
+        int d;
+        while (ss >> d) {
+            deg.push_back(d);
+        }
+
+        if ((int)deg.size() != num_of_vertices) {
+            cerr << "Line " << line_num << ": invalid degree sequence length\n";
+            continue;
+        }
+
+        try {
+            auto edges = havel_hakimi_graph(deg);
+            string filename = "data/graph_" + to_string(line_num) + ".txt";
+            ofstream outfile(filename);
+            outfile << num_of_vertices << "\n";
+            for (auto [u, v] : edges) {
+                outfile << u << " " << v << "\n";
+            }
+            outfile << line << "\n";
+            outfile.close();
+            cout << "Saved: " << filename << "\n";
+        } catch (const exception& e) {
+            cerr << "Error on line " << line_num << ": " << e.what() << "\n";
+        }
+
+        ++line_num;
+    }
+
+    infile.close();
     return 0;
 }
