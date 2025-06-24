@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <chrono> 
 
 #define endl "\n"
 #define all(v) (v).begin(), (v).end()
@@ -98,6 +99,9 @@ void partition(vector<int>& deg, Fenwick<int>& acc, int ind, int rm_deg, int sum
 
 int main()
 {
+    using namespace std::chrono;
+    auto start = high_resolution_clock::now();
+
     cin >> NUM_OF_V;
     assert(NUM_OF_V%4 == 0 || NUM_OF_V%4 == 1);
     assert(NUM_OF_V < 1e4); // prevent interger v overflow
@@ -110,6 +114,11 @@ int main()
     partition(deg, acc, 1, TOTAL_DEG, 0, 0);
     outfile.close();
 
+    auto end = high_resolution_clock::now();  // 종료 시간
+    duration<double> elapsed = end - start;   // 시간 차이 (초)
+
+    cout << "Elapsed time: " << elapsed.count() << " seconds" << endl;
+    cout << "Total sequences: " << SEQ_NUM << endl;
     return 0;
 }
 
