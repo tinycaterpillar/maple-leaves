@@ -1,6 +1,6 @@
 # Self-Complementary Graph Degree Sequence Generator
 
-This program is designed to generate **degree sequences** corresponding to **self-complementary graphs**.  
+This program is designed to **enumerate candidate degree sequences** that could correspond to **self-complementary graphs**.
 
 ※ Only **simple graphs** are considered — multiple edges and loops are not allowed.
 
@@ -12,7 +12,7 @@ This program is designed to generate **degree sequences** corresponding to **sel
   An integer `n`, representing the number of vertices. It must be of the form `4k` or `4k + 1`.
 
 - **Output**  
-  A list of **graphic degree sequences** satisfying all of the following conditions:
+  A list of degree sequences that are graphic and satisfy all of the following conditions:
 
   1. **Graphic Sequence**  
      The sequence satisfies the **Erdős–Gallai theorem**, i.e., it corresponds to some simple graph.
