@@ -9,6 +9,7 @@
 using namespace std;
 int NUM_OF_V;
 int TOTAL_DEG, TOTAL_EDGE;
+int SEQ_NUM;
 
 // 1-indexed fenwick tree
 template <class T> struct Fenwick
@@ -32,6 +33,15 @@ template <class T> struct Fenwick
         return ret;
     }
 };
+
+// check deg_{i}+deg{n+1-i} == NUM_OF_V-1 for all i = 1, 2, ... NUM_OF_V
+bool deg_symmetry(vector<int>& deg)
+{
+    for(int i = 1; i <= NUM_OF_V; ++i){
+        if(deg[i]+deg[NUM_OF_V+1-i] != NUM_OF_V-1) return false;
+    }
+    return true;
+}
 
 // return True if deg is graphic
 bool Erdos_Gallai(vector<int>& deg, Fenwick<int>& acc, int odd)
@@ -62,9 +72,11 @@ bool Erdos_Gallai(vector<int>& deg, Fenwick<int>& acc, int odd)
 void partition(vector<int>& deg, Fenwick<int>& acc, int ind, int rm_deg, int sum, int odd)
 {
     if(ind > NUM_OF_V){
+        if(!deg_symmetry(deg)) return;
         if(!Erdos_Gallai(deg, acc, odd)) return;
-        for(int i = 1; i <= NUM_OF_V; ++i) cout << deg[i] << ' ';
+        for(int i = 1; i <= NUM_OF_V; ++i) cout << deg[i] << " ";
         cout << endl;
+        SEQ_NUM += 1;
  
         return;
     }
@@ -93,6 +105,7 @@ int main()
     vector<int> deg; deg.push_back(NUM_OF_V-1); // use base-1 index
     Fenwick<int> acc(NUM_OF_V);                 // use base-1 index
     partition(deg, acc, 1, TOTAL_DEG, 0, 0);
+    cout << "\nTotal: " << SEQ_NUM << endl;
 
     return 0;
 }
