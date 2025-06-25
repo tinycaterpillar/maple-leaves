@@ -36,11 +36,11 @@ def check_isomorphism(idx, graph_path, complement_path):
         return f"✘ graph_{idx} and complement_{idx} are NOT isomorphic (vertex count mismatch)", deg_seq1, False
 
     gm = iso.GraphMatcher(G1, G2)
+    warn = has_odd_frequency(deg_seq1.split())
     if gm.is_isomorphic():
-        warn = has_odd_frequency(deg_seq1.split())
         return f"✔ graph_{idx} and complement_{idx} are isomorphic", deg_seq1, warn
     else:
-        return None, deg_seq1, False
+        return f"✘ graph_{idx} and complement_{idx} are NOT isomorphic", deg_seq1, warn
 
 def main():
     data_dir = "data"
@@ -60,6 +60,7 @@ def main():
             complement_files[idx] = os.path.join(data_dir, name)
 
     tasks = []
+    results = []
     with ProcessPoolExecutor() as executor:
         for idx in sorted(graph_files):
             if idx not in complement_files:
@@ -69,12 +70,19 @@ def main():
 
         for future in as_completed(tasks):
             result, deg_seq, warn = future.result()
+            output = result + "\n"
+            output += f"data seq: {deg_seq}\n"
             if result:
                 print(result)
                 print(f"data seq: {deg_seq}")
                 if warn:
                     print("⚠️ degree sequence에 홀수 번 등장한 수가 있습니다.")
                 print()
+            output += "\n"
+            results.append(output)
+    
+    with open("result.txt", "w", encoding="utf-8") as f:
+        f.writelines(results)
 
 if __name__ == "__main__":
     main()

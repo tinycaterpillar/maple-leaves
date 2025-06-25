@@ -83,4 +83,5 @@ The pipeline:
 
 1. [Erdős–Gallai Theorem](https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Gallai_theorem)  
 2. [Havel–Hakimi Algorithm](https://en.wikipedia.org/wiki/Havel%E2%80%93Hakimi_algorithm)
-3. [Networkx](https://networkx.org/documentation/stable/tutorial.html)
+3. [The degree sequences of self-complementary graphs](https://www.sciencedirect.com/science/article/pii/009589567690068X)
+4. [Networkx](https://networkx.org/documentation/stable/tutorial.html)

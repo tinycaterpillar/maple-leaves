@@ -9,6 +9,8 @@
 #include <chrono>
 #include <mutex>
 #include <omp.h>
+#include <string>
+#include <memory>
 
 #define endl "\n"
 #define all(v) (v).begin(), (v).end()
@@ -20,6 +22,45 @@ int TOTAL_DEG, TOTAL_EDGE;
 int SEQ_NUM = 0;
 mutex output_mutex;
 ofstream outfile("data/seq.txt");
+
+const int BATCH_SIZE = 10000;
+vector<string> file_paths;
+vector<shared_ptr<mutex>> file_mutexes;
+
+// 출력을 해당 파일에 기록
+void write_sequence_to_file(const vector<int>& deg) {
+    int seq_index;
+    {
+        lock_guard<mutex> lock(output_mutex);
+        seq_index = SEQ_NUM++;
+    }
+
+    int file_index = seq_index / BATCH_SIZE;
+
+    // 파일이 아직 열리지 않았으면 mutex 사용하여 초기화
+    static mutex file_init_mutex;
+    {
+        lock_guard<mutex> lock(file_init_mutex);
+        if (file_paths.size() <= file_index) {
+            file_paths.resize(file_index + 1);
+            file_mutexes.resize(file_index + 1);
+            file_paths[file_index] = "data/seq_"+ to_string(NUM_OF_V) + "-" + to_string(file_index) + ".txt";
+            file_mutexes[file_index] = make_shared<mutex>();
+
+            ofstream init(file_paths[file_index]);
+            init << NUM_OF_V << endl;
+            init.close();
+
+            cout << "[INFO] Created file: " << file_paths[file_index] << endl;
+        }
+    }
+
+    lock_guard<mutex> lock(*file_mutexes[file_index]);
+    ofstream out(file_paths[file_index], ios::app);
+    for (int i = 1; i <= NUM_OF_V; ++i) out << deg[i] << " ";
+    out << endl;
+    out.close();
+}
 
 // 1-indexed Fenwick Tree
 template <class T>
@@ -76,13 +117,7 @@ void partition(vector<int>& deg, Fenwick<int>& acc, int ind, int rm_deg, int sum
         if (!deg_symmetry(deg)) return;
         if (!Erdos_Gallai(deg, acc, odd)) return;
 
-        // ✅ thread-safe 출력 구간
-        {
-            lock_guard<mutex> lock(output_mutex);
-            for (int i = 1; i <= NUM_OF_V; ++i) outfile << deg[i] << " ";
-            outfile << endl;
-            SEQ_NUM += 1;
-        }
+        write_sequence_to_file(deg);
         return;
     }
 
