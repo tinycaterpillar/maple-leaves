@@ -21,7 +21,6 @@ int NUM_OF_V;
 int TOTAL_DEG, TOTAL_EDGE;
 int SEQ_NUM = 0;
 mutex output_mutex;
-ofstream outfile("data/seq.txt");
 
 const int BATCH_SIZE = 10000;
 vector<string> file_paths;
@@ -85,11 +84,37 @@ struct Fenwick {
     }
 };
 
-bool deg_symmetry(vector<int>& deg) {
-    for (int i = 1; i <= NUM_OF_V; ++i) {
-        if (deg[i] + deg[NUM_OF_V + 1 - i] != NUM_OF_V - 1) return false;
+bool suitable(vector<int>& deg)
+{
+    if(NUM_OF_V % 4 == 0) {
+        int n = NUM_OF_V / 4;
+        // (i) d_i + d_{4n+1-i} = 4n - 1
+        for(int i = 1; i <= 2*n; ++i){
+            if(deg[i] + deg[4*n + 1 - i] != 4*n - 1)
+                return false;
+        }
+        // (ii) d_{2j} = d_{2j-1}
+        for(int j = 1; j <= n; ++j){
+            if(deg[2*j] != deg[2*j - 1])
+                return false;
+        }
+        return true;
     }
-    return true;
+    else if(NUM_OF_V % 4 == 1) {
+        int n = (NUM_OF_V - 1) / 4;
+        // (i) d_i + d_{4n+2-i} = 4n
+        for(int i = 1; i <= 2*n + 1; ++i){
+            if(deg[i] + deg[4*n + 2 - i] != 4*n)
+                return false;
+        }
+        // (ii) d_{2j} = d_{2j-1}
+        for(int j = 1; j <= n; ++j){
+            if(deg[2*j] != deg[2*j - 1])
+                return false;
+        }
+        return true;
+    }
+    else return false;
 }
 
 bool Erdos_Gallai(vector<int>& deg, Fenwick<int>& acc, int odd) {
@@ -114,7 +139,7 @@ bool Erdos_Gallai(vector<int>& deg, Fenwick<int>& acc, int odd) {
 
 void partition(vector<int>& deg, Fenwick<int>& acc, int ind, int rm_deg, int sum, int odd) {
     if (ind > NUM_OF_V) {
-        if (!deg_symmetry(deg)) return;
+        if (!suitable(deg)) return;
         if (!Erdos_Gallai(deg, acc, odd)) return;
 
         write_sequence_to_file(deg);
@@ -143,7 +168,6 @@ int main() {
     assert(NUM_OF_V % 4 == 0 || NUM_OF_V % 4 == 1);
     assert(NUM_OF_V < 10000); // overflow 방지
 
-    outfile << NUM_OF_V << endl;
     TOTAL_DEG = NUM_OF_V * (NUM_OF_V - 1) / 2;
     TOTAL_EDGE = TOTAL_DEG / 2;
 
@@ -160,8 +184,6 @@ int main() {
 
         partition(deg, acc, 2, TOTAL_DEG - d, sum, odd);
     }
-
-    outfile.close();
 
     auto end = high_resolution_clock::now();
     duration<double> elapsed = end - start;

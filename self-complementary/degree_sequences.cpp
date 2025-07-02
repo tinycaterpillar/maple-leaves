@@ -37,14 +37,39 @@ template <class T> struct Fenwick
     }
 };
 
-// check deg_{i}+deg{n+1-i} == NUM_OF_V-1 for all i = 1, 2, ... NUM_OF_V
-bool deg_symmetry(vector<int>& deg)
+bool suitable(vector<int>& deg)
 {
-    for(int i = 1; i <= NUM_OF_V; ++i){
-        if(deg[i]+deg[NUM_OF_V+1-i] != NUM_OF_V-1) return false;
+    if(NUM_OF_V % 4 == 0) {
+        int n = NUM_OF_V / 4;
+        // (i) d_i + d_{4n+1-i} = 4n - 1
+        for(int i = 1; i <= 2*n; ++i){
+            if(deg[i] + deg[4*n + 1 - i] != 4*n - 1)
+                return false;
+        }
+        // (ii) d_{2j} = d_{2j-1}
+        for(int j = 1; j <= n; ++j){
+            if(deg[2*j] != deg[2*j - 1])
+                return false;
+        }
+        return true;
     }
-    return true;
+    else if(NUM_OF_V % 4 == 1) {
+        int n = (NUM_OF_V - 1) / 4;
+        // (i) d_i + d_{4n+2-i} = 4n
+        for(int i = 1; i <= 2*n + 1; ++i){
+            if(deg[i] + deg[4*n + 2 - i] != 4*n)
+                return false;
+        }
+        // (ii) d_{2j} = d_{2j-1}
+        for(int j = 1; j <= n; ++j){
+            if(deg[2*j] != deg[2*j - 1])
+                return false;
+        }
+        return true;
+    }
+    else return false;
 }
+
 
 // return True if deg is graphic
 bool Erdos_Gallai(vector<int>& deg, Fenwick<int>& acc, int odd)
@@ -75,7 +100,7 @@ bool Erdos_Gallai(vector<int>& deg, Fenwick<int>& acc, int odd)
 void partition(vector<int>& deg, Fenwick<int>& acc, int ind, int rm_deg, int sum, int odd)
 {
     if(ind > NUM_OF_V){
-        if(!deg_symmetry(deg)) return;
+        if(!suitable(deg)) return;
         if(!Erdos_Gallai(deg, acc, odd)) return;
         for(int i = 1; i <= NUM_OF_V; ++i) outfile << deg[i] << " ";
         outfile << endl;
