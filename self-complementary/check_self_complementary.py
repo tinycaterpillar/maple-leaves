@@ -38,23 +38,24 @@ def visualize_failure(result):
     
     # 동일한 노드 위치를 양쪽 그래프에 사용
     # pos = nx.spring_layout(G, seed=42) # use this if kamada_kawai_layout is too slow
-    pos = nx.kamada_kawai_layout(G)
+    G_pos = nx.kamada_kawai_layout(G)
+    Gc_pos = nx.kamada_kawai_layout(Gc)
 
     plt.figure(figsize=(14, 6))
 
     # 원래 그래프
     plt.subplot(1, 2, 1)
-    nx.draw_networkx_nodes(G, pos, node_color='skyblue', node_size=800)
-    nx.draw_networkx_edges(G, pos, edge_color='gray', width=1.5)
-    nx.draw_networkx_labels(G, pos, font_size=10)
+    nx.draw_networkx_nodes(G, G_pos, node_color='skyblue', node_size=800)
+    nx.draw_networkx_edges(G, G_pos, edge_color='gray', width=1.5)
+    nx.draw_networkx_labels(G, G_pos, font_size=10)
     plt.title(f"G (Trial {result['trial'] + 1})")
     plt.axis('off')
 
     # 컴플리먼트 그래프
     plt.subplot(1, 2, 2)
-    nx.draw_networkx_nodes(Gc, pos, node_color='salmon', node_size=800)
-    nx.draw_networkx_edges(Gc, pos, edge_color='gray', width=1.5)
-    nx.draw_networkx_labels(Gc, pos, font_size=10)
+    nx.draw_networkx_nodes(Gc, Gc_pos, node_color='salmon', node_size=800)
+    nx.draw_networkx_edges(Gc, Gc_pos, edge_color='gray', width=1.5)
+    nx.draw_networkx_labels(Gc, Gc_pos, font_size=10)
     plt.title("Complement of G")
     plt.axis('off')
 
